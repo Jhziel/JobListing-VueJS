@@ -83,20 +83,6 @@
         "contactEmail": "contact@ipsumlorem.com",
         "contactPhone": "555-555-5555"
       }
-    },
-    {
-      "type": "Internship",
-      "title": "Sasha Change",
-      "description": "Amet enim aspernatu",
-      "salary": "Under $50K",
-      "location": "Veniam perspiciatis",
-      "company": {
-        "name": "Frank and Case Trading",
-        "description": "Est mollit sed et pe",
-        "contactEmail": "regyfegu@mailinator.com",
-        "contactPhone": "+1 (479) 289-1558"
-      },
-      "id": "f5d4"
     }
   ]
 }

@@ -7,6 +7,8 @@ import {
   faArrowCircleLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import VueSweetalert2 from "vue-sweetalert2";
+import "sweetalert2/dist/sweetalert2.min.css";
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
@@ -17,5 +19,6 @@ library.add(faMapMarkerAlt, faExclamationTriangle, faArrowCircleLeft);
 const app = createApp(App);
 app.use(router);
 app.use(Toast);
+app.use(VueSweetalert2);
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.mount("#app");

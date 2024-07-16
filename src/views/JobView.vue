@@ -4,6 +4,7 @@ import { useToast } from "vue-toastification";
 import { useRoute, useRouter, RouterLink } from "vue-router";
 import { onMounted, ref } from "vue";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const route = useRoute();
 const router = useRouter();
@@ -15,12 +16,24 @@ const job = ref({});
 
 const deleteJob = async () => {
   try {
-    await axios.delete(`/api/jobs/${jobId}`);
-    toast.success("Successfully delete Job");
-    router.push("/jobs");
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    });
+
+    if (result.isConfirmed) {
+      await axios.delete(`/api/jobs/${jobId}`);
+      toast.success("Successfully deleted the job");
+      router.push("/jobs");
+    }
   } catch (error) {
-    console.log("Unsuccessfully delete Job", error);
-    toast.error("Unsuccessfully delete Job");
+    console.log("Unsuccessful job deletion", error);
+    toast.error("Unsuccessful job deletion");
   }
 };
 
